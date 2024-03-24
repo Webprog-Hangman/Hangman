@@ -1,0 +1,65 @@
+body {
+  font-family: "Arial", serif;
+  height: 100vh;
+  display: flex;
+  animation: PageTransition 1s;
+}
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -2;
+}
+.bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+main {
+  position: relative;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+}
+main > #signup {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 1;
+}
+main > #login {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 2;
+}
+main > #leaderboard {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 3;
+}
+.button {
+  background-color: saddlebrown;
+  padding: 20px 35px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  font-size: 24pt;
+  font-weight: bold;
+}
+.button:hover {
+  font-size: 28pt;
+  padding: 24px 39px;
+}
+.button > a {
+  text-decoration: none;
+  color: white;
+}
