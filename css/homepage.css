@@ -2,7 +2,6 @@ body {
   font-family: "Arial", serif;
   height: 100vh;
   display: flex;
-  animation: PageTransition 1s;
 }
 .bg {
   position: fixed;
@@ -66,7 +65,7 @@ main > #leaderboard {
   animation: load_button .3s .6s forwards;
 }
 .button {
-  background-color: saddlebrown;
+  background: linear-gradient(0deg, rgb(93, 53, 13) 0%, rgba(201, 80, 5, 0.82) 100%);
   padding: 20px 35px;
   border-radius: 40px;
   cursor: pointer;
@@ -77,6 +76,7 @@ main > #leaderboard {
 .button:hover {
   font-size: 28pt;
   padding: 24px 39px;
+  box-shadow: 0 0.5em 1.5em -0.5em rgb(56, 55, 54);
 }
 .button > a {
   text-decoration: none;
