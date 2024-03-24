@@ -31,25 +31,44 @@ main {
   grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
 }
+@keyframes load_button {
+  0% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(125%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
 main > #signup {
   align-self: center;
   grid-column: 1;
   grid-row: 1;
+  opacity: 0;
+  animation: load_button .3s .05s forwards;
 }
 main > #login {
   align-self: center;
   grid-column: 1;
   grid-row: 2;
+  opacity: 0;
+  animation: load_button .3s .3s forwards;
 }
 main > #leaderboard {
   align-self: center;
   grid-column: 1;
   grid-row: 3;
+  opacity: 0;
+  animation: load_button .3s .6s forwards;
 }
 .button {
   background-color: saddlebrown;
   padding: 20px 35px;
-  border-radius: 15px;
+  border-radius: 40px;
   cursor: pointer;
   transition-duration: 0.2s;
   font-size: 24pt;
