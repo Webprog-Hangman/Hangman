@@ -1,0 +1,106 @@
+body {
+    font-family: "Arial", serif;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+.bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+}
+.bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+header {
+    padding-top: 30px;
+    font-size: 34pt;
+    font-weight: bold;
+    text-align: center;
+}
+strong {
+    font-size: 22pt;
+}
+#form_container {
+    align-self: center;
+    padding-top: 50px;
+    width: 70%;
+    min-width: 600px;
+    max-width: 1000px;
+    height: 70%;
+    min-height: 650px;
+    max-height: 800px;
+}
+form {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(241, 241, 245);
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    opacity: 94%;
+}
+#username_field {
+    width: 600px;
+    padding-left: 15%;
+    padding-top: 175px;
+    padding-right: -15%;
+    /*position: absolute;*/
+}
+#password_field {
+    width: 600px;
+    padding-top: 100px;
+    padding-left: 15%;
+    padding-right: -15%;
+    /*position: absolute;*/
+}
+#submit_button {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10%;
+    right: 0;
+    padding-right: 10%;
+}
+input[type=submit]:hover {
+    font-size: 28pt;
+    padding: 22px 35px;
+    box-shadow: 0 0.5em 1.5em -0.5em rgb(56, 55, 54);
+}
+input[type=submit] {
+    background: linear-gradient(0deg, rgba(189, 150, 12, 0.82) 0%, rgb(150, 123, 64) 100%);
+    padding: 20px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 0.15s;
+    font-size: 24pt;
+    font-weight: bold;
+    box-sizing: content-box;
+    text-decoration: none;
+    color: black;
+}
+input[type=text],
+input[type=password] {
+    width: 35%;
+    box-sizing: border-box;
+    border: 2px solid rgba(204, 204, 204, 0.51);
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 8px 14px 8px 14px;
+    transition: width 0.3s ease-in-out;
+}
+input[type=text]:focus,
+input[type=password]:focus {
+    width: 50%;
+}
