@@ -1,0 +1,79 @@
+/*Format entire body*/
+body {
+    font-family: "Arial", serif;
+    display: flex;
+    background-image: url("css/img/login_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+}
+
+.back_button{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width:100px;
+    height: 100px;
+}
+
+/*Center title*/
+.title{
+    position: absolute;
+    margin-bottom: 20px;
+    font-size: 34pt;
+    font-weight: bold;
+    color: black;
+    left: 40%;
+}
+
+/*Create form background and set to grid layout*/
+.form_container{
+    position: relative;
+    background-color: rgb(241, 241, 245);
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    align-self: center;
+}
+
+.name, .username,.password{
+    margin-top: 25px;
+}
+/*Format labels of inputs to the left*/
+.name label, .username label, .password label{
+    text-align: left;
+    font-size: 20pt;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/*Format input boxes to the right*/
+.name input, .username input, .password input{
+    position: absolute;
+    left: 200px;
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 18pt;
+}
+
+.submit_button{
+    background: linear-gradient(0deg, rgba(189, 150, 12, 0.82) 0%, rgb(150, 123, 64) 100%);
+    padding: 20px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 24pt;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+}
