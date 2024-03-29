@@ -2,6 +2,8 @@
 	//Start session
 	session_start();
 
+	chmod("user_login_info.txt", 0666);
+
 	//Check if submit was clicked
 	if(isset($_POST['submit'])){
 		//Array storing user info from user_login_info.txt
