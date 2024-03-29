@@ -2,7 +2,7 @@
 body {
     font-family: "Arial", serif;
     display: flex;
-    background-image: url("css/img/login_bg.png");
+    background-image: url("img/login_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
