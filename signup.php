@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="top">
-		<a href="homepage.html"><img src="back_button.png" class="back_button"></a>
+		<a href="homepage.html"><img src="css/img/back_button.png" class="back_button"></a>
 		<h2 class="title">Sign Up Form</h2>
 	</div>
 	<div class="form_container">
