@@ -1,24 +1,38 @@
-<?php session_start(); /* Starts the session */
+<?php session_start();
 
 /* Check Login form submitted */
-if(isset($_POST['Submit'])){
-    /* temp user to test */
-    $logins = array('lkinsey2' => '1234');
+if (isset($_POST['Submit'])) {
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    
+    $file_path = 'user_login_info.txt';
+    if (file_exists($file_path)) {
+        $user_found = false;
+        $file = fopen($file_path, "r");
+        
+        // Loop through each line in the file
+        while (!feof($file)) {
+            $line = fgets($file);
+            $loginUser = explode(",", $line);
 
-    /* Check and assign submitted Username and Password to new variable */
-    $Username = $_POST['Username'] ?? '';
-    $Password = $_POST['Password'] ?? '';
-
-    /* Check Username and Password existence in defined array */
-    if (isset($logins[$Username]) && $logins[$Username] == $Password){
-        /* Success: Set session variables and redirect to Protected page  */
-        $_SESSION['Username']=$Username;
-        $_SESSION['Password']=$logins[$Username];
-        header("location:homepage.html");
-        exit;
+            // Check if the username and password match
+            if (trim($loginUser[0]) === $Username && trim($loginUser[1]) === $Password) {
+                $user_found = true;
+                break;
+            }
+        }
+        fclose($file);
+        // If user was found, redirect to difficulty selection page
+        if ($user_found) {
+            header("Location: difficulty.php");
+            exit();
+        } else {
+            // Set error message
+            $msg = "<span style='color:red'>Invalid Login Details</span>";
+        }
     } else {
-        /*Unsuccessful attempt: Set error message */
-        $msg="<span style='color:red'>Invalid Login Details</span>";
+        // Error message if file does not exist
+        $msg = "<span style='color:red'>Error: file not found</span>";
     }
 }
 ?>
@@ -31,14 +45,23 @@ if(isset($_POST['Submit'])){
         <link href="css/login.css" rel="stylesheet">
     </head>
     <body>
+    <!-- Background image div -->
         <div class="bg"><img src="css/img/login_bg.png" alt="background"/> </div>
-    <!--    <div id="arrow"><a id="back_arrow" href="homepage.html"></a></div>-->
+    <!-- Back arrow and header div -->
         <div id="top_nav">
-            <a href="homepage.html">Back</a>
+            <a href="homepage.html" id="back_button"><img src="css/img/back_button.png"  alt="Back Arrow"></a>
             <header>Login</header>
         </div>
+    <!-- Form -->
         <div id="form_container">
             <form action="" method="post" name="login_form">
+            <!-- If login credentials are wrong -->
+                <div id="error_message">
+                <?php if(isset($msg)){
+                     echo $msg;
+                }?>
+                </div>
+                <!-- Input Fields -->
                 <div id="username_field">
                     <label><strong>Username:</strong>
                         <input name="Username" type="text">
@@ -49,6 +72,7 @@ if(isset($_POST['Submit'])){
                         <input name="Password" type="password">
                     </label>
                 </div>
+                <!-- Submit button -->
                 <div id="submit_button">
                     <input name="Submit" type="submit" value="Log in">
                 </div>
