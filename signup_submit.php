@@ -18,28 +18,27 @@
 		//Fill $userData array with corresponding lines of code
 		foreach ($users as $person) {
 			$userDataArray=explode(",", $person);
-			$username=$userDataArray[1];
-			$userData[$username]=['name' => $userDataArray[0], 'password' => $userDataArray[2]];
+			$username=$userDataArray[0];
+			$userData[$username]=['Password' => $userDataArray[1]];
 		}
 
 		//Check that all form fields are filled
-		if (empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password'])) {
+		if (empty($_POST['Username']) || empty($_POST['Password'])) {
 			echo '<h1>Error! Please fill in all fields. <a href="signup.php">Try Again.</a> </h1>';
 		}else{
 			//Check if the username is already taken
-			if (isset($userData[$_POST['username']])) {
+			if (isset($userData[$_POST['Username']])) {
 				echo '<h1>Error! The username is already taken. <a href="signup.php">Try Again.</a></h1>';
 			}else{
 				//If all fields are filled and username is not taken then continue to register user
-				$name=$_POST['name'];
-				$username=$_POST['username'];
-				$password=$_POST['password'];
+				$username=$_POST['Username'];
+				$password=$_POST['Password'];
 
 				//Add new user to $userData array
-				$userData[$username]=['name' => $name, 'password' => $password];
+				$userData[$username]=['Password' => $password];
 			}
 				//Add new user to user_login_info.txt
-				$userDataLine = implode(",", [$name,$username,$password]);
+				$userDataLine = implode(",", [$username,$password]);
 
 				file_put_contents($file, $userDataLine."\n", FILE_APPEND);
 
