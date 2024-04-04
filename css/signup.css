@@ -40,11 +40,11 @@ body {
     align-self: center;
 }
 
-.name, .username,.password{
+.username,.password{
     margin-top: 25px;
 }
 /*Format labels of inputs to the left*/
-.name label, .username label, .password label{
+.username label, .password label{
     text-align: left;
     font-size: 20pt;
     font-weight: bold;
@@ -53,7 +53,7 @@ body {
 }
 
 /*Format input boxes to the right*/
-.name input, .username input, .password input{
+.username input, .password input{
     position: absolute;
     left: 200px;
     width: 70%;
