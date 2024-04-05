@@ -24,7 +24,7 @@ if (isset($_POST['Submit'])) {
         fclose($file);
         // If user was found, redirect to difficulty selection page
         if ($user_found) {
-            header("Location: difficulty.php");
+            header("Location: difficulty.html");
             exit();
         } else {
             // Set error message
