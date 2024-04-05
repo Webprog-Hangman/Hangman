@@ -11,8 +11,8 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 60px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
 .keyboard {
     position: fixed;
