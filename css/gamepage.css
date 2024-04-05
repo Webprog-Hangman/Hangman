@@ -1,0 +1,66 @@
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('css/img/home_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+.back_button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 50px;
+}
+.keyboard {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*background-color: #f0f0f0;*/
+    padding: 10px 0;
+    z-index: 999; /* Ensure the keyboard appears above other content */
+}
+.keyboard form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboard .row {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 60px; /* Adjust the width of the buttons */
+    height: 60px; /* Adjust the height of the buttons */
+    margin: 5px; /* Adjust spacing between buttons */
+    border: 1px solid #ccc; /* Add a border to the buttons */
+    border-radius: 8px; /* Add rounded corners to the buttons */
+    background-color: #f0f0f0; /* Set background color for the buttons */
+    font-size: 22px; /* Adjust font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+}
+
+button:active {
+    background-color: #ccc; /* Change background color on click */
+}
+
+
+.hangman-figure {
+    margin-top: 150px;
+    margin-left: 100px; /* Add some space between the hangman display and the keyboard */
+    float: left; /* Align the hangman display to the left */
+}
+
+.empty-hangman {
+    position: relative; /* Position relative to allow absolute positioning of body parts */
+    display: inline-block; /* Ensure the container only takes as much space as necessary */
+}
