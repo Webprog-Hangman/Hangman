@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('./img/leaderboard_bg.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background-color: #f5e6ca;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #2e2219;
+    text-shadow: 1px 1px 1px #543e2f;
+    font-size: 36px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #543e2f;
+}
+
+table th,
+table td {
+    border: 1px solid #543e2f;
+    padding: 10px;
+    text-align: center;
+    color: #543e2f;
+}
+
+table th {
+    background-color: #e1c5a5;
+    color: #543e2f;
+}
+
+table tr:nth-child(even) {
+    background-color: #d4bca3;
+}
+
+table tr:nth-child(odd) {
+    background-color: #e1c5a5;
+
+}
