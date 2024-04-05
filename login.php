@@ -1,32 +1,37 @@
 <?php session_start();
-
 /* Check Login form submitted */
 if (isset($_POST['Submit'])) {
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];
+    
+    /* Check Login credentials entered */
     if (!empty($Username) && !empty($Password)) {
+        /* Open file */
         $file_path = 'user_login_info.txt';
         $user_found = false;
         $file = fopen($file_path, "r");
-        // Loop through each line in the file
+        
+        /* Loop through each line in the file */
         while (!feof($file)) {
             $line = fgets($file);
             $loginUser = explode(",", $line);
-            // Check if the username and password match
+            
+            /* Check if the username and password match */
             if (trim($loginUser[0]) === $Username && trim($loginUser[1]) === $Password) {
                 $user_found = true;
                 break;
             }
         }
         fclose($file);
-        // If user was found, redirect to difficulty selection page
+        
+        /* If user was found, redirect to difficulty selection page */
         if ($user_found) {
             header("Location: difficulty.html");
             exit();
         }
     }
     else {
-        // Set error message
+        /* Set error message */
         $msg = "<span style='color:red'>Invalid Login Details</span>";
     }
 }
