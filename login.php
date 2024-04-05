@@ -29,6 +29,10 @@ if (isset($_POST['Submit'])) {
             header("Location: difficulty.html");
             exit();
         }
+        else {
+            /* Set error message */
+            $msg = "<span style='color:red'>Invalid Login Details</span>";
+        }
     }
     else {
         /* Set error message */
