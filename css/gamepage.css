@@ -64,3 +64,15 @@ button:active {
     position: relative; /* Position relative to allow absolute positioning of body parts */
     display: inline-block; /* Ensure the container only takes as much space as necessary */
 }
+.solution{
+    float: right;
+    margin-top: 500px;
+    margin-right: 300px;
+    display: flex;
+}
+.placeholders{
+    font-weight: bold;
+    font-size: 28pt;
+    padding: 10px 20px;
+    margin: 5px;
+}
