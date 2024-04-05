@@ -1,34 +1,26 @@
-html{
-  height: 100%;
-  width: 100%;
-}
 body{
-  background: url(img/difficulty-bg.avif) no-repeat; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url(img/difficulty-bg.avif);
   background-size: cover;
-  height: 100%;
-  width: 100%;
-}
-
-div img{
-  height: 140px;
-  display: flex;
-}
-
-.content{
-  display: flex;
-  width: 600px;
-  height: 700px;
-  margin: auto;
+  background-repeat: no-repeat;
+  height: 100vh;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-  
+  position: relative;
+}
+
+.back_button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width:100px;
+    height: 100px;
+}
+.content{
+  text-align: center;
 }
 
 h2{
+  display: inline-block;
   font-size: 42px;
   font-family: "Arial", serif;
   color: white;
@@ -36,43 +28,40 @@ h2{
   background: linear-gradient(0deg, rgb(52, 31, 9),  rgb(136, 88, 40) 100%);
   box-shadow: 0 0.5em 1.5em -0.5em rgb(56, 55, 54);
   border-radius: 40px;
-  margin-top: -120px;
-  margin-bottom: -50px;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  
-
+  margin-top: 100px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
-.button {
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.easy_button, .medium_button, .hard_button{
+  display: block;
   background: linear-gradient(0deg, rgb(93, 53, 13) 0%, rgba(201, 80, 5, 0.82) 100%);
-  padding: 20px 35px;
-  border-radius: 40px;
-  cursor: pointer;
-  transition-duration: 0.2s;
-  font-size: 24pt;
-  font-weight: bold;
-  color: white;
+    width: 200px;
+    height: 100px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    font-size: 24pt;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
   
 }
 
-.button:nth-child(2){
-  margin-bottom: -50px;
-}
 
-.button:nth-child(3){
-  margin-bottom: -50px;
-}
-
-
-.button:hover {
-  font-size: 28pt;
-  padding: 24px 39px;
+.easy_button:hover, .medium_button:hover, .hard_button:hover {
+  font-size: 30pt;
+  width: 250px;
   box-shadow: 0 0.5em 1.5em -0.5em rgb(56, 55, 54);
 }
-.button > a {
+.easy_button, .medium_button, .hard_button > a {
   text-decoration: none;
   color: white;
 }
-
