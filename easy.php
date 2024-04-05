@@ -13,9 +13,20 @@
     <?php
     session_start();
     if (!isset($_SESSION['wordToGuess']) || isset($_POST['newGame'])) {
-      
-      // importWordList reads the words for the given difficulty and stores them into $wordArray
-      $_SESSION['$wordArray'] = importWordList($difficulty);
+      $difficulty=$_POST['difficulty'];
+        switch ($difficulty) {
+            case 'Easy':
+                $wordDifficulty = 'easy-words.txt';
+                break;
+            case 'Medium':
+                $wordDifficulty = 'medium-words.txt';
+                break;
+            case 'Hard':
+                $wordDifficulty = 'hard-words.txt';
+                break;
+        }
+      // $difficulty = 'easy-words.txt' (for example)
+      $_SESSION['$wordArray'] = importWordList($wordDifficulty);
       $wordArray = $_SESSION['$wordArray'];
 
       // The word array is sent to generateWord() and returns the next word to guess
@@ -79,8 +90,8 @@
       session_destroy(); // End the game
     }
 
-    function importWordList($difficulty) {
-      $file = fopen($difficulty, "r");
+    function importWordList($wordDifficulty) {
+      $file = fopen($wordDifficulty, "r");
       $line = fgets($file);
       // Store all words into array
       $wordArray = explode(",",$line);
