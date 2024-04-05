@@ -52,7 +52,28 @@
 	
 	<!-- Placeholders for solution word letters-->
 	<div class="solution">
-		
+		<?php
+			//Retrieve selected difficulty level
+			if(isset($_POST['difficulty'])){
+				$difficulty=$_POST['difficulty'];
+				switch ($difficulty) {
+					case 'Easy':
+						$numPlaceholders = 5;
+						break;
+					case 'Medium':
+						$numPlaceholders = 7;
+						break;
+					case 'Hard':
+						$numPlaceholders = 9;
+						break;
+				}
+			}
+
+			//Generate the placeholders
+			for($i=0; $i<$numPlaceholders;$i++){
+				echo '<div class="placeholders">___</div>';
+			}
+		?>
 	</div>
 </body>
 </html>
