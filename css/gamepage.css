@@ -55,8 +55,8 @@ button:active {
 
 
 .hangman-figure {
-    margin-top: 150px;
-    margin-left: 100px; /* Add some space between the hangman display and the keyboard */
+    margin-top: 200px;
+    margin-left: 200px; /* Add some space between the hangman display and the keyboard */
     float: left; /* Align the hangman display to the left */
 }
 
