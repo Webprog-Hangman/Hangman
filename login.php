@@ -4,17 +4,14 @@
 if (isset($_POST['Submit'])) {
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];
-    
-    $file_path = 'user_login_info.txt';
-    if (file_exists($file_path)) {
+    if (!empty($Username) && !empty($Password)) {
+        $file_path = 'user_login_info.txt';
         $user_found = false;
         $file = fopen($file_path, "r");
-        
         // Loop through each line in the file
         while (!feof($file)) {
             $line = fgets($file);
             $loginUser = explode(",", $line);
-
             // Check if the username and password match
             if (trim($loginUser[0]) === $Username && trim($loginUser[1]) === $Password) {
                 $user_found = true;
@@ -26,13 +23,11 @@ if (isset($_POST['Submit'])) {
         if ($user_found) {
             header("Location: difficulty.html");
             exit();
-        } else {
-            // Set error message
-            $msg = "<span style='color:red'>Invalid Login Details</span>";
         }
-    } else {
-        // Error message if file does not exist
-        $msg = "<span style='color:red'>Error: file not found</span>";
+    }
+    else {
+        // Set error message
+        $msg = "<span style='color:red'>Invalid Login Details</span>";
     }
 }
 ?>
