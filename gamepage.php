@@ -248,3 +248,4 @@ foreach (str_split($currentWord) as $char) {
 </div>
 </body>
 </html>
+*/?>
