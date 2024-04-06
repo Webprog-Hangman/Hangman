@@ -1,3 +1,45 @@
+<?php session_start();
+require'functions.php';
+
+//Retrieve selected difficulty level
+if(isset($_POST['difficulty'])){
+    $difficulty=$_POST['difficulty'];
+    switch ($difficulty) {
+        case 'Easy':
+            $numPlaceholders = 5;
+            $wordDifficulty = 'easy-words.txt';
+            break;
+        case 'Medium':
+            $numPlaceholders = 7;
+            $wordDifficulty = 'medium-words.txt';
+            break;
+        case 'Hard':
+            $wordDifficulty = 'hard-words.txt';
+            $numPlaceholders = 9;
+            break;
+    }
+}
+// Random word generator
+$_SESSION['$wordArray'] = importWordList($wordDifficulty);
+$wordArray = $_SESSION['$wordArray'];
+
+$currentWord = generateWord($wordArray);
+echo 'CURRENT WORD: '.$currentWord;
+
+/* ------------ work in progress ------------
+// Check if letter is correct
+$_SESSION['wrongCount'] = 0;
+$wrongCount = $_SESSION['wrongCount'];
+
+if(isset($_POST['letter'])) {
+    $selectedLetter = $_POST['letter'];
+    if (!in_array($selectedLetter, str_split($currentWord))) {
+        $wrongCount++;
+        var_dump('#WRONG: ' . $wrongCount);
+    }
+}
+*/ ------------------------------------------
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,26 +95,20 @@
 	<!-- Placeholders for solution word letters-->
 	<div class="solution">
 		<?php
-			//Retrieve selected difficulty level
-			if(isset($_POST['difficulty'])){
-				$difficulty=$_POST['difficulty'];
-				switch ($difficulty) {
-					case 'Easy':
-						$numPlaceholders = 5;
-						break;
-					case 'Medium':
-						$numPlaceholders = 7;
-						break;
-					case 'Hard':
-						$numPlaceholders = 9;
-						break;
-				}
-			}
+		//Generate the placeholders
+		for($i=0; $i<$numPlaceholders;$i++){
+			echo '<div class="placeholders">___</div>';
+		}
+/* ------------ work in progress ------------
+//From easy.php - seemed helpful
 
-			//Generate the placeholders
-			for($i=0; $i<$numPlaceholders;$i++){
-				echo '<div class="placeholders">___</div>';
-			}
+foreach (str_split($currentWord) as $char) {
+            if (in_array($char, $guessedLetters)) {
+                echo $char . ' ';
+            } else {
+                echo '_ ';
+            }
+*/ ------------------------------------------
 		?>
 	</div>
 </body>
