@@ -13,7 +13,25 @@
     <?php
     session_start();
     if (!isset($_SESSION['wordToGuess']) || isset($_POST['newGame'])) {
-      $_SESSION['wordToGuess'] = generateWord();
+      $difficulty=$_POST['difficulty'];
+        switch ($difficulty) {
+            case 'Easy':
+                $wordDifficulty = 'easy-words.txt';
+                break;
+            case 'Medium':
+                $wordDifficulty = 'medium-words.txt';
+                break;
+            case 'Hard':
+                $wordDifficulty = 'hard-words.txt';
+                break;
+        }
+      // $difficulty = 'easy-words.txt' (for example)
+      $_SESSION['$wordArray'] = importWordList($wordDifficulty);
+      $wordArray = $_SESSION['$wordArray'];
+
+      // The word array is sent to generateWord() and returns the next word to guess
+      $_SESSION['wordToGuess'] = generateWord($wordArray);
+      
       $_SESSION['guessedLetters'] = [];
       $_SESSION['incorrectGuesses'] = 1;
     }
@@ -72,12 +90,21 @@
       session_destroy(); // End the game
     }
 
-
-    // Generate a random word
-    function generateWord()
-    {
-      $words = ['BAT', 'LATE', 'GOODBYE'];
-      return $words[array_rand($words)];
+    function importWordList($wordDifficulty) {
+      $file = fopen($wordDifficulty, "r");
+      $line = fgets($file);
+      // Store all words into array
+      $wordArray = explode(",",$line);
+      fclose($file);
+        return $wordArray;
+    }
+    function generateWord(&$wordArray) {
+      // Finds random word in array
+      $randomWord = $wordArray[array_rand($wordArray)];
+      // Deletes word from array
+      unset($wordArray[array_search($randomWord,$wordArray)]);
+      // Returns next word
+        return $randomWord;
     }
     ?>
   </div>

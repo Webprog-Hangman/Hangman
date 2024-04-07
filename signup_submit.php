@@ -35,10 +35,10 @@
 				$password=$_POST['Password'];
 
 				//Add new user to $userData array
-				$userData[$username]=['Password' => $password];
+				$userData[$username]=['Password' => $password, 'Wins'=>0];
 			}
 				//Add new user to user_login_info.txt
-				$userDataLine = implode(",", [$username,$password]);
+				$userDataLine = implode(",", [$username,$password,0]);
 
 				file_put_contents($file, $userDataLine."\n", FILE_APPEND);
 

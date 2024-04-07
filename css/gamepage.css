@@ -1,0 +1,157 @@
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('css/img/home_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+.back_button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.hangman-figure {
+    margin-top: 200px;
+    margin-left: 200px; /* Add some space between the hangman display and the keyboard */
+    float: left; /* Align the hangman display to the left */
+}
+
+.empty-hangman {
+    position: relative; /*Position relative to allow absolute positioning of body parts */
+    display: inline-block; /* Ensure the container only takes as much space as necessary */
+    z-index: 1;
+}
+.guess-form{
+    position: fixed; /* Position at the bottom */
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px; /* Add padding for better appearance */
+}
+.guess-box{
+    width: 30%;
+    height: 40px;
+    font-family: Arial, sans-serif;
+    font-size: 24pt;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    color: saddlebrown;
+}
+.guess-box::placeholder {
+    color: sandybrown; /* Style placeholder text color */
+}
+.guess_button {
+    margin-left: 20px;
+    width: 10%;
+    height: 65px; /* Match input height */
+    padding: 0 20px; /* Add padding for better appearance */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Add rounded corners */
+    background-color: saddlebrown; /* Set background color */
+    color: white; /* Set text color */
+    font-size: 24px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Add transition for smoother hover effect */
+}
+
+.guess_button:hover {
+    background-color: brown; /* Darken background color on hover */
+}
+.solution{
+    float: right;
+    margin-top: 500px;
+    margin-right: 300px;
+    display: flex;
+}
+.placeholders{
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 28pt;
+    padding: 10px 20px;
+    margin: 5px;
+}
+.head{
+    position: absolute;
+    z-index: 2;
+    top: 220px;
+    left: 330px;
+}
+.torso{
+    position: absolute;
+    z-index: 4;
+    top: 345px;
+    left: 415px;
+}
+.left-arm{
+    position: absolute;
+    z-index: 3;
+    top: 350px;
+    left: 350px;
+}
+.right-arm{
+    position: absolute;
+    z-index: 3;
+    top: 355px;
+    left: 420px;
+}
+.left-leg{
+    position: absolute;
+    z-index: 3;
+    top: 445px;
+    left: 347px;
+}
+.right-leg{
+    position: absolute;
+    z-index: 3;
+    top: 447px;
+    left: 420px;
+}
+.message-box {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    font-size: 24pt;
+}
+
+.message-box a {
+    color: blue; /* Adjust link color as needed */
+    text-decoration: none;
+    width: 50%;
+    height: auto;
+    z-index: 11;
+    font-size: 18pt;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
+.message-box a:hover {
+    text-decoration: underline;
+}
+.message-text{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 24pt;
+}
