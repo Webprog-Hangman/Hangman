@@ -135,7 +135,7 @@ if (isset($_POST['guess-box'])) {
 <body style="background-image: url('css/img/gamepage_background.jpeg'); background-size: cover;">
     <!--Back to homepage button-->
     <div class="top">
-        <a href="homepage.html">
+        <a href="difficulty.php">
             <img src="css/img/back_button.png" class="back_button">
         </a>
     </div>
