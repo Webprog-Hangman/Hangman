@@ -1,6 +1,18 @@
 <?php
 session_start(); // Start the session
 
+// Reset game if requested
+if (isset($_GET['restart']) && $_GET['restart'] === 'true') {
+    // Unset session variables related to the game
+    unset($_SESSION['correctLetters']);
+    unset($_SESSION['incorrectLetters']);
+    unset($_SESSION['solutionWord']);
+    $_SESSION['message'] = null;
+    
+    // Redirect to the game page after resetting
+    header("Location: gamepage.php");
+    exit();
+}
 // Initialize variables if they don't exist in the session
 if (!isset($_SESSION['wordFile'])) {
     $_SESSION['wordFile'] = '';
@@ -188,7 +200,7 @@ if (isset($_POST['guess-box'])) {
     <?php
     if (isset($_SESSION['message'])) {
         if ($_SESSION['message'] == "win") {
-            echo '<div id="message-box-win"><p id="message-win-text">You win!</p><a href="next_level.php" class="next_level_button">Next Level</a></div>';
+            echo '<div id="message-box-win"><p id="message-win-text">You win!</p><a href="gamepage.php?restart=true" class="next_level_button">Next Level</a></div>';
         } elseif ($_SESSION['message'] == "lose") {
             echo '<div id="message-box-lose"><p id="message-lose-text">You lose!</p><a href="homepage.html" class="home_button">Home</a></div>';
         }
