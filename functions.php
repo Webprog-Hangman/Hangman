@@ -29,6 +29,8 @@ function letter_spaces($spaces) {
 
 
 
+
+
 /* ------------------------------------------------------------------
 Eveerything below this is not used but maybe it can help?
 

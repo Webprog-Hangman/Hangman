@@ -1,5 +1,4 @@
-<?php 
-session_start();
+<?php session_start();
 /* Check Login form submitted */
 if (isset($_POST['Submit'])) {
     $Username = $_POST['Username'];
@@ -20,8 +19,6 @@ if (isset($_POST['Submit'])) {
             /* Check if the username and password match */
             if (trim($loginUser[0]) === $Username && trim($loginUser[1]) === $Password) {
                 $user_found = true;
-                //Store username in session
-                $_SESSION['username']=$Username;
                 break;
             }
         }
@@ -31,6 +28,10 @@ if (isset($_POST['Submit'])) {
         if ($user_found) {
             header("Location: difficulty.php");
             exit();
+        }
+        else {
+            /* Set error message */
+            $msg = "<span style='color:red'>Invalid Login Details</span>";
         }
     }
     else {
@@ -60,9 +61,9 @@ if (isset($_POST['Submit'])) {
             <form action="" method="post" name="login_form">
             <!-- If login credentials are wrong -->
                 <div id="error_message">
-                <?php if(isset($msg)){
-                     echo $msg;
-                }?>
+               <?php if(isset($msg)): ?>
+        <span style="color:red"><?php echo $msg; ?></span>
+    <?php endif; ?>
                 </div>
                 <!-- Input Fields -->
                 <div id="username_field">
