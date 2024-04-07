@@ -27,6 +27,20 @@ if (isset($_GET['restart_home']) && $_GET['restart_home'] === 'true') {
     exit();
 }
 
+// Restart game if the "Back" button image is clicked
+if (isset($_GET['restart_back_button']) && $_GET['restart_back_button'] === 'true') {
+    // Unset session variables related to the game including the difficulty level
+    unset($_SESSION['correctLetters']);
+    unset($_SESSION['incorrectLetters']);
+    unset($_SESSION['solutionWord']);
+    unset($_SESSION['wordFile']);
+    $_SESSION['message'] = null;
+
+    // Redirect to the game page after resetting
+    header("Location: difficulty.php");
+    exit();
+}
+
 // Initialize variables if they don't exist in the session
 if (!isset($_SESSION['wordFile'])) {
     $_SESSION['wordFile'] = '';
@@ -149,7 +163,7 @@ if (isset($_POST['guess-box'])) {
 <body style="background-image: url('css/img/gamepage_background.jpeg'); background-size: cover;">
     <!--Back to homepage button-->
     <div class="top">
-        <a href="difficulty.php">
+        <a href="gamepage.php?restart_back_button=true">
             <img src="css/img/back_button.png" class="back_button">
         </a>
     </div>
