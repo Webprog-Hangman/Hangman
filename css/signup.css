@@ -1,6 +1,11 @@
 /*Format entire body*/
+@font-face{
+  font-family: permanentMarker;
+  src: url(PermanentMarker-Regular.ttf);
+}
+
 body {
-    font-family: "Arial", serif;
+    font-family: permanentMarker;
     display: flex;
     background-image: url("img/login_bg.png");
     background-size: cover;
@@ -75,5 +80,6 @@ body {
     right: 0;
     margin-bottom: 10px;
     margin-right: 10px;
+    font-family: permanentMarker;
 
 }

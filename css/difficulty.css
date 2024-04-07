@@ -1,3 +1,8 @@
+@font-face{
+  font-family: permanentMarker;
+  src: url(PermanentMarker-Regular.ttf);
+}
+
 body{
   background: url(img/difficulty-bg.avif);
   background-size: cover;
@@ -6,6 +11,8 @@ body{
   justify-content: center;
   align-items: center;
   position: relative;
+  font-family: permanentMarker;
+
 }
 
 .back_button{
@@ -22,7 +29,6 @@ body{
 h2{
   display: inline-block;
   font-size: 42px;
-  font-family: "Arial", serif;
   color: white;
   text-align: center;
   background: linear-gradient(0deg, rgb(52, 31, 9),  rgb(136, 88, 40) 100%);
@@ -39,6 +45,7 @@ h2{
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
+  font-family: permanentMarker;
 }
 .easy_button, .medium_button, .hard_button{
   display: block;
@@ -52,6 +59,7 @@ h2{
     font-weight: bold;
     color: white;
     margin-top: 20px;
+    font-family: permanentMarker;
   
 }
 
