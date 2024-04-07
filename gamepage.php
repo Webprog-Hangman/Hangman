@@ -184,6 +184,7 @@ if (isset($_POST['guess-box'])) {
             }
             if ($incorrectCount >= 6) {
                 echo '<img src="css/img/right-leg.png" class="right-leg"> ';
+                echo '<div id="message-box-lose"><p id="message-lose-text">You lose!</p><a href="homepage.html" class="home_button">Home</a></div>';
             }
             ?>
         </div>
