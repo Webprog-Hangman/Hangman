@@ -13,6 +13,20 @@ if (isset($_GET['restart']) && $_GET['restart'] === 'true') {
     header("Location: gamepage.php");
     exit();
 }
+
+// Restart game if the "Home" button is clicked after losing
+if (isset($_GET['restart_home']) && $_GET['restart_home'] === 'true') {
+    // Unset session variables related to the game
+    unset($_SESSION['correctLetters']);
+    unset($_SESSION['incorrectLetters']);
+    unset($_SESSION['solutionWord']);
+    $_SESSION['message'] = null;
+    
+    // Redirect to the homepage after resetting
+    header("Location: homepage.html");
+    exit();
+}
+
 // Initialize variables if they don't exist in the session
 if (!isset($_SESSION['wordFile'])) {
     $_SESSION['wordFile'] = '';
@@ -91,7 +105,7 @@ if (isset($_POST['guess-box'])) {
             //Add incorrectly guessed letters into the array
             $_SESSION['incorrectLetters'][] = $guessedLetter;
             //Check if more than 6 guesses are incorrect
-            if (count($_SESSION['incorrectLetters']) > 6) {
+            if (count($_SESSION['incorrectLetters']) > 5) {
                 $_SESSION['message'] = "lose";
             }
         }
@@ -184,7 +198,6 @@ if (isset($_POST['guess-box'])) {
             }
             if ($incorrectCount >= 6) {
                 echo '<img src="css/img/right-leg.png" class="right-leg"> ';
-                echo '<div id="message-box-lose"><p id="message-lose-text">You lose!</p><a href="homepage.html" class="home_button">Home</a></div>';
             }
             ?>
         </div>
@@ -201,7 +214,7 @@ if (isset($_POST['guess-box'])) {
         if ($_SESSION['message'] == "win") {
             echo '<div id="message-box-win"><p id="message-win-text">You win!</p><a href="gamepage.php?restart=true" class="next_level_button">Next Level</a></div>';
         } elseif ($_SESSION['message'] == "lose") {
-            echo '<div id="message-box-lose"><p id="message-lose-text">You lose!</p><a href="homepage.html" class="home_button">Home</a></div>';
+            echo '<div id="message-box-lose"><p id="message-lose-text">You lose!</p><a href="gamepage.php?restart_home=true" class="home_button">Home</a></div>';
         }
         unset($_SESSION['message']);
     }
