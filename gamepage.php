@@ -93,7 +93,6 @@ if (isset($_POST['guess-box'])) {
             //Check if more than 6 guesses are incorrect
             if (count($_SESSION['incorrectLetters']) > 6) {
                 $_SESSION['message'] = "lose";
-                session_destroy();
             }
         }
         //Check if all letters have been guessed correctly
@@ -115,7 +114,6 @@ if (isset($_POST['guess-box'])) {
 
             //Remove the guessed solution word from the corresponding word txt file
             removeWordFromFile($_SESSION['wordFile'],$_SESSION['solutionWord']);
-            session_destroy();
         }
     }
 }
