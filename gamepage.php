@@ -49,6 +49,17 @@ if (!isset($_SESSION['solutionWord'])) {
 // Get random word and set as solution word
 $solutionWord = $_SESSION['solutionWord'];
 
+//Function to remove already guessed words from corresponding word txt file
+function removeWordFromFile($filename, $wordToRemove){
+    //Read word file
+    $words=file($filename, FILE_IGNORE_NEW_LINES);
+
+    //Remove corresponding word and store in new array
+    $updatedWords = array_diff($words, array($wordToRemove));
+
+    //Write the updated word list back to the corresponding word txt file
+    file_put_contents($filename, implode("\n",$updatedWords));
+}
 //Logic to handle user guess
 if (isset($_POST['guess-box'])) {
     //Convert gussed letter to uppercase
@@ -89,6 +100,9 @@ if (isset($_POST['guess-box'])) {
                 }
             }
             file_put_contents("user_login_info.txt", implode("\n", $lines));
+
+            //Remove the guessed solution word from the corresponding word txt file
+            removeWordFromFile($_SESSION['wordFile'],$_SESSION['solutionWord']);
             session_destroy();
         }
     }
