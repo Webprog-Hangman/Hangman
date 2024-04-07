@@ -17,13 +17,16 @@ if (file_exists($file_path)) {
             $wins = intval(trim($userDataArray[2]));
             // Check if the user has signed up 
             if (!empty($username) && !empty($password)) {
-                $userData[$username] = ['Password' => $password, 'Wins' => $wins];
+                $userData[$username] = ['Username'=>$username, 'Password' => $password, 'Wins' => $wins];
             }
         }
     }
     fclose($file);
 
-    arsort($userData); // Sort in descending order based on wins
+    // Sort user data array by wins in descending order
+    usort($userData, function($a, $b) {
+    return $b['Wins'] - $a['Wins'];
+    });
 }
 ?>
 
@@ -47,15 +50,10 @@ if (file_exists($file_path)) {
             </tr>
             <?php
             $rank = 1;
-            $prevWins = null;
-            foreach ($userData as $username => $userInfo) {
-                if ($userInfo['Wins'] !== $prevWins) {
-                    $prevWins = $userInfo['Wins'];
-                    $rankDisplay = $rank;
-                }
+            foreach ($userData as $userInfo) {
                 echo "<tr>";
-                echo "<td>$rankDisplay</td>";
-                echo "<td>$username</td>";
+                echo "<td>$rank</td>";
+                echo "<td>{$userInfo['Username']}</td>";
                 echo "<td>{$userInfo['Wins']}</td>";
                 echo "</tr>";
                 $rank++;
