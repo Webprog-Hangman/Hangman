@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 /* Check Login form submitted */
 if (isset($_POST['Submit'])) {
     $Username = $_POST['Username'];
@@ -19,6 +20,8 @@ if (isset($_POST['Submit'])) {
             /* Check if the username and password match */
             if (trim($loginUser[0]) === $Username && trim($loginUser[1]) === $Password) {
                 $user_found = true;
+                //Store username in session
+                $_SESSION['username']=$Username;
                 break;
             }
         }
@@ -28,10 +31,6 @@ if (isset($_POST['Submit'])) {
         if ($user_found) {
             header("Location: difficulty.php");
             exit();
-        }
-        else {
-            /* Set error message */
-            $msg = "<span style='color:red'>Invalid Login Details</span>";
         }
     }
     else {
