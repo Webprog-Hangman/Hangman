@@ -56,6 +56,8 @@ table td {
 table th {
     background-color: #e1c5a5;
     color: #543e2f;
+    font-size:18pt;
+    font-weight:bold;
 }
 
 table tr:nth-child(even) {
