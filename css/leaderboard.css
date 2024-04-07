@@ -5,13 +5,17 @@ body {
     background-image: url('./img/leaderboard_bg.jpeg');
     background-size: cover;
     background-position: center;
-}
-
-body {
-    margin: 0;
-    padding: 0;
     font-family: 'Georgia', serif;
     background-color: #f5e6ca;
+}
+
+
+.back_button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
 }
 
 .container {
@@ -28,9 +32,11 @@ h1 {
 }
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     border: 2px solid #543e2f;
+    margin: 0 auto;
+
 }
 
 table th,
