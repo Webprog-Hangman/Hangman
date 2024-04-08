@@ -26,7 +26,6 @@ if (isset($_GET['restart_home']) && $_GET['restart_home'] === 'true') {
     header("Location: homepage.html");
     exit();
 }
-
 // Restart game if the "Back" button image is clicked
 if (isset($_GET['restart_back_button']) && $_GET['restart_back_button'] === 'true') {
     // Unset session variables related to the game including the difficulty level
@@ -40,7 +39,6 @@ if (isset($_GET['restart_back_button']) && $_GET['restart_back_button'] === 'tru
     header("Location: difficulty.php");
     exit();
 }
-
 // Initialize variables if they don't exist in the session
 if (!isset($_SESSION['wordFile'])) {
     $_SESSION['wordFile'] = '';
